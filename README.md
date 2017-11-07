@@ -2,12 +2,26 @@
 ## Introductory Project: Diagonal Sudoku Solver
 
 # Question 1 (Naked Twins)
-Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+Q: How do we use constraint propagation to solve the naked twins problem?
+
+A:  Naked twins technique - 2 grid boxes amongst peers contain the same digits, for example F3 and I3 has the same values 23.  
+		For sure one of the boxes F3 or I3 either 2 or 3 is locked and no other boxes in the third column can have 2 or 3. 
+		Based on this, check the 2 digits in their peers and remove them. This process is called Naked twins technique.
+		Apply this constraint using the following steps 
+
+    Step 1 : Identify boxes with only two digits and match them in pairs.
+		Step 2 : Find pairs of identical values within each unit.
+		Step 3 : Remove the digits of the naked-twin pair from the other boxes in the unit.
+		Step 4 : Apply this constraint repeatedly until the puzzle stops changing.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: The constraint propagation is similar to the square sudoku problem. For diagonl, we need to add the diagonal constraint.
+We need to create 2 additional units whihc represent the diagonal units "X".
+diagonal_units[0] = ['A1', 'B2', 'C3', 'D4', 'E5', 'F6', 'G7', 'H8', 'I9']
+diagonal_units[1] = ['A9', 'B8', 'C7', 'D6', 'E5', 'F4', 'G3', 'H2', 'I1']
+By further applying the elimination, only choice, naked-twin and search tree techniques, we can use constraint propagation
+to solve the sudoku puzzle.
 
 ### Install
 
